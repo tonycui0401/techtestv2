@@ -71,5 +71,30 @@ namespace RobotTest
             }
         }
 
+        public void ExecuteCommand(string roverCommands)
+        {
+            char[] roverCommandsChars = roverCommands.ToCharArray();
+
+            foreach (char c in roverCommandsChars)
+            {
+                switch (c)
+                {
+                    case 'M':
+                        this.Move();
+                        break;
+                    case 'L':
+                        this.RotateL();
+                        break;
+                    case 'R':
+                        this.RotateR();
+                        break;
+                }
+            }
+        }
+        public void Output() {
+
+             Console.WriteLine($"{this.Location.X} {this.Location.Y} {this.Heading}");
+        }
+
     }
 }
